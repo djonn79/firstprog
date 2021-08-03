@@ -8,24 +8,29 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="classpath:musicPlayer.properties" />
+    <context:component-scan base-package="org.example" />
 
-    <bean id="rockMusic"
-          class="org.example.RockMusic">
-    </bean>
+<!--    <bean id="rockMusic"-->
+<!--          class="org.example.RockMusic">-->
+<!--    </bean>-->
 
-    <bean id = "classicalMusic"
-          class="org.example.ClassicalMusic">
-    </bean>
+<!--    <bean id = "classicalMusic"-->
+<!--          class="org.example.ClassicalMusic"-->
+<!--          init-method="initial"-->
+<!--          destroy-method="destroy">-->
 
-    <bean id = "musicPlayer"
-        class="org.example.MusicPlayer">
-        <property name="music">
-            <list>
-                <ref bean="rockMusic" />
-                <ref bean="classicalMusic" />
-            </list>
-        </property>
+<!--    </bean>-->
 
+<!--    <bean id = "musicPlayer"-->
+<!--        class="org.example.MusicPlayer">-->
+<!--        <property name="music">-->
+<!--            <list>-->
+<!--                <ref bean="rockMusic" />-->
+<!--                <ref bean="classicalMusic" />-->
+<!--            </list>-->
+<!--        </property>-->
+
+    <bean id = "musicPlayer" class="org.example.MusicPlayer">
         <property name="name" value="${musicPlayer.name}" />
         <property name="volume" value="${musicPlayer.volume}" />
     </bean>

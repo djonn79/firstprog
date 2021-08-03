@@ -1,10 +1,14 @@
 package org.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MusicPlayer {
-    private List<Music> music = new ArrayList<>();
+    private Music music;
     private int volume;
     private String name;
 
@@ -16,13 +20,14 @@ public class MusicPlayer {
         return name;
     }
 
-    public MusicPlayer(List<Music> music) {
+
+    public MusicPlayer(Music music) {
         this.music = music;
     }
 
     public MusicPlayer(){}
 
-    public List<Music> getMusic() {
+    public Music getMusic() {
         return music;
     }
 
@@ -30,7 +35,8 @@ public class MusicPlayer {
         return volume;
     }
 
-    public void setMusic(List<Music> music) {
+    @Autowired
+    public void setMusic(Music music) {
         this.music = music;
     }
 
@@ -41,9 +47,7 @@ public class MusicPlayer {
     public void playSong(){
         System.out.println("Volume is - " + volume);
         System.out.println("My name is " + name);
-        for (Music m : music) {
-            System.out.println("I'm playing " + m.getSong() + " music");
-        }
+        System.out.println("I'm playing " + music.getSong() + " music");
 
 
     }
